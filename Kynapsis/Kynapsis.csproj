@@ -274,6 +274,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Paciente\Paciente.cshtml" />
+    <Content Include="Views\Estudiante\Estudiante.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
