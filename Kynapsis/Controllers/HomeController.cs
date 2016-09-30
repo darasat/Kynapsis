@@ -26,5 +26,7 @@ namespace Kynapsis.Controllers
 
             return View();
         }
+
+    
     }
 }

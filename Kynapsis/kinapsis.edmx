@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="kynapsisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividades_Especiales">
+          <Key>
+            <PropertyRef Name="IdActividadesEspeciales" />
+          </Key>
+          <Property Name="IdActividadesEspeciales" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="CitaGrupal">
+          <Key>
+            <PropertyRef Name="IdCitaGrupal" />
+          </Key>
+          <Property Name="IdCitaGrupal" Type="int" Nullable="false" />
+          <Property Name="Estudiante" Type="varchar" MaxLength="45" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="CitaIndividual">
+          <Key>
+            <PropertyRef Name="IdCita" />
+          </Key>
+          <Property Name="IdCita" Type="int" Nullable="false" />
+          <Property Name="NumeroOrden" Type="varchar" MaxLength="45" />
+          <Property Name="Fisioterapeuta" Type="varchar" MaxLength="45" />
+          <Property Name="Paciente" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="5" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Apellido" Type="varchar" MaxLength="45" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Edad" Type="varchar" MaxLength="45" />
+          <Property Name="Sexo" Type="varchar" MaxLength="1" />
+          <Property Name="Correo" Type="varchar" MaxLength="45" />
+          <Property Name="Semestre" Type="varchar" MaxLength="45" />
+          <Property Name="Encargado" Type="varchar" MaxLength="45" />
+          <Property Name="DocumentoEncargado" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Fisioterapeuta">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="5" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Apellido" Type="varchar" MaxLength="45" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Sexo" Type="varchar" MaxLength="1" />
+          <Property Name="Direccion" Type="varchar" MaxLength="45" />
+          <Property Name="Telefono" Type="varchar" MaxLength="45" />
+          <Property Name="Correo" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="FisioterapeutaActividadesEspeciales">
+          <Key>
+            <PropertyRef Name="ActividadEspecial" />
+          </Key>
+          <Property Name="ActividadEspecial" Type="int" Nullable="false" />
+          <Property Name="Fisioterapeuta" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="HorarioFisioterapeuta">
+          <Key>
+            <PropertyRef Name="Fisioterapeuta" />
+          </Key>
+          <Property Name="Fisioterapeuta" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="FechaFin" Type="date" />
+          <Property Name="HoraInicio" Type="time" Precision="7" />
+          <Property Name="HoraFin" Type="time" Precision="7" />
+          <Property Name="HoraDescanso" Type="time" Precision="7" />
+          <Property Name="HoraDescansoFin" Type="time" Precision="7" />
+          <Property Name="IdHorarioFisioterapeuta" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="NumeroOrden" />
+          </Key>
+          <Property Name="NumeroOrden" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Sesiones" Type="int" />
+          <Property Name="DocumentoPaciente" Type="varchar" MaxLength="15" />
+          <Property Name="TipoOrden" Type="varchar" MaxLength="45" />
+          <Property Name="FechaOrden" Type="date" />
+          <Property Name="FechaVencimiento" Type="date" />
+          <Property Name="FechaIngreso" Type="date" />
+          <Property Name="CodigoSiniestro" Type="varchar" MaxLength="45" />
+          <Property Name="Ordencol" Type="varchar" MaxLength="45" />
+          <Property Name="Dx" Type="varchar" MaxLength="45" />
+          <Property Name="FechaAccidente" Type="date" />
+          <Property Name="Diagnostico" Type="varchar" MaxLength="300" />
+          <Property Name="Cobertura" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="OrdenCitasGrupales">
+          <Key>
+            <PropertyRef Name="Cita" />
+          </Key>
+          <Property Name="Cita" Type="int" Nullable="false" />
+          <Property Name="Orden" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="5" />
+          <Property Name="Nombre" Type="varchar" MaxLength="45" />
+          <Property Name="Apellido" Type="varchar" MaxLength="45" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Sexo" Type="varchar" MaxLength="1" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Direccion" Type="varchar" MaxLength="45" />
+          <Property Name="Localidad" Type="varchar" MaxLength="45" />
+          <Property Name="Estrato" Type="int" />
+          <Property Name="Correo" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CitaGrupal_ToEstudiante">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="CitaGrupal" Type="Self.CitaGrupal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="CitaGrupal">
+              <PropertyRef Name="Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaIndividual_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="CitaIndividual" Type="Self.CitaIndividual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="CitaIndividual">
+              <PropertyRef Name="Fisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaIndividual_Orden">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+          <End Role="CitaIndividual" Type="Self.CitaIndividual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="NumeroOrden" />
+            </Principal>
+            <Dependent Role="CitaIndividual">
+              <PropertyRef Name="NumeroOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiante_ToFisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="DocumentoEncargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
+          <End Role="Actividades_Especiales" Type="Self.Actividades_Especiales" Multiplicity="1" />
+          <End Role="FisioterapeutaActividadesEspeciales" Type="Self.FisioterapeutaActividadesEspeciales" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Actividades_Especiales">
+              <PropertyRef Name="IdActividadesEspeciales" />
+            </Principal>
+            <Dependent Role="FisioterapeutaActividadesEspeciales">
+              <PropertyRef Name="ActividadEspecial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="FisioterapeutaActividadesEspeciales" Type="Self.FisioterapeutaActividadesEspeciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="FisioterapeutaActividadesEspeciales">
+              <PropertyRef Name="Fisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioFisioterapeuta_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="HorarioFisioterapeuta" Type="Self.HorarioFisioterapeuta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="HorarioFisioterapeuta">
+              <PropertyRef Name="IdHorarioFisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orden_ToPaciente">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="Orden">
+              <PropertyRef Name="DocumentoPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdenCitasGrupales_Cita">
+          <End Role="CitaGrupal" Type="Self.CitaGrupal" Multiplicity="1" />
+          <End Role="OrdenCitasGrupales" Type="Self.OrdenCitasGrupales" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CitaGrupal">
+              <PropertyRef Name="IdCitaGrupal" />
+            </Principal>
+            <Dependent Role="OrdenCitasGrupales">
+              <PropertyRef Name="Cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdenCitasGrupales_Orden">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+          <End Role="OrdenCitasGrupales" Type="Self.OrdenCitasGrupales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="NumeroOrden" />
+            </Principal>
+            <Dependent Role="OrdenCitasGrupales">
+              <PropertyRef Name="Orden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kynapsisModelStoreContainer">
+          <EntitySet Name="Actividades_Especiales" EntityType="Self.Actividades_Especiales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CitaGrupal" EntityType="Self.CitaGrupal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CitaIndividual" EntityType="Self.CitaIndividual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fisioterapeuta" EntityType="Self.Fisioterapeuta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FisioterapeutaActividadesEspeciales" EntityType="Self.FisioterapeutaActividadesEspeciales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HorarioFisioterapeuta" EntityType="Self.HorarioFisioterapeuta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenCitasGrupales" EntityType="Self.OrdenCitasGrupales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CitaGrupal_ToEstudiante" Association="Self.FK_CitaGrupal_ToEstudiante">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="CitaGrupal" EntitySet="CitaGrupal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaIndividual_Fisioterapeuta" Association="Self.FK_CitaIndividual_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="CitaIndividual" EntitySet="CitaIndividual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaIndividual_Orden" Association="Self.FK_CitaIndividual_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="CitaIndividual" EntitySet="CitaIndividual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiante_ToFisioterapeuta" Association="Self.FK_Estudiante_ToFisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp" Association="Self.FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
+            <End Role="Actividades_Especiales" EntitySet="Actividades_Especiales" />
+            <End Role="FisioterapeutaActividadesEspeciales" EntitySet="FisioterapeutaActividadesEspeciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta" Association="Self.FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="FisioterapeutaActividadesEspeciales" EntitySet="FisioterapeutaActividadesEspeciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioFisioterapeuta_Fisioterapeuta" Association="Self.FK_HorarioFisioterapeuta_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="HorarioFisioterapeuta" EntitySet="HorarioFisioterapeuta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orden_ToPaciente" Association="Self.FK_Orden_ToPaciente">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="Orden" EntitySet="Orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdenCitasGrupales_Cita" Association="Self.FK_OrdenCitasGrupales_Cita">
+            <End Role="CitaGrupal" EntitySet="CitaGrupal" />
+            <End Role="OrdenCitasGrupales" EntitySet="OrdenCitasGrupales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdenCitasGrupales_Orden" Association="Self.FK_OrdenCitasGrupales_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="OrdenCitasGrupales" EntitySet="OrdenCitasGrupales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kynapsisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividades_Especiales">
+          <Key>
+            <PropertyRef Name="IdActividadesEspeciales" />
+          </Key>
+          <Property Name="IdActividadesEspeciales" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <NavigationProperty Name="FisioterapeutaActividadesEspeciales" Relationship="Self.FK_FisioterapeutaActividadesEspeciales_ActividadEsp" FromRole="Actividades_Especiales" ToRole="FisioterapeutaActividadesEspeciales" />
+        </EntityType>
+        <EntityType Name="CitaGrupal">
+          <Key>
+            <PropertyRef Name="IdCitaGrupal" />
+          </Key>
+          <Property Name="IdCitaGrupal" Type="Int32" Nullable="false" />
+          <Property Name="Estudiante" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <NavigationProperty Name="Estudiante1" Relationship="Self.FK_CitaGrupal_ToEstudiante" FromRole="CitaGrupal" ToRole="Estudiante" />
+          <NavigationProperty Name="OrdenCitasGrupales" Relationship="Self.FK_OrdenCitasGrupales_Cita" FromRole="CitaGrupal" ToRole="OrdenCitasGrupales" />
+        </EntityType>
+        <EntityType Name="CitaIndividual">
+          <Key>
+            <PropertyRef Name="IdCita" />
+          </Key>
+          <Property Name="IdCita" Type="Int32" Nullable="false" />
+          <Property Name="NumeroOrden" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Fisioterapeuta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Paciente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <NavigationProperty Name="Fisioterapeuta1" Relationship="Self.FK_CitaIndividual_Fisioterapeuta" FromRole="CitaIndividual" ToRole="Fisioterapeuta" />
+          <NavigationProperty Name="Orden" Relationship="Self.FK_CitaIndividual_Orden" FromRole="CitaIndividual" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Edad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Semestre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Encargado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentoEncargado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CitaGrupal" Relationship="Self.FK_CitaGrupal_ToEstudiante" FromRole="Estudiante" ToRole="CitaGrupal" />
+          <NavigationProperty Name="Fisioterapeuta" Relationship="Self.FK_Estudiante_ToFisioterapeuta" FromRole="Estudiante" ToRole="Fisioterapeuta" />
+        </EntityType>
+        <EntityType Name="Fisioterapeuta">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CitaIndividual" Relationship="Self.FK_CitaIndividual_Fisioterapeuta" FromRole="Fisioterapeuta" ToRole="CitaIndividual" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_Estudiante_ToFisioterapeuta" FromRole="Fisioterapeuta" ToRole="Estudiante" />
+          <NavigationProperty Name="FisioterapeutaActividadesEspeciales" Relationship="Self.FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta" FromRole="Fisioterapeuta" ToRole="FisioterapeutaActividadesEspeciales" />
+          <NavigationProperty Name="HorarioFisioterapeuta" Relationship="Self.FK_HorarioFisioterapeuta_Fisioterapeuta" FromRole="Fisioterapeuta" ToRole="HorarioFisioterapeuta" />
+        </EntityType>
+        <EntityType Name="FisioterapeutaActividadesEspeciales">
+          <Key>
+            <PropertyRef Name="ActividadEspecial" />
+          </Key>
+          <Property Name="ActividadEspecial" Type="Int32" Nullable="false" />
+          <Property Name="Fisioterapeuta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Actividades_Especiales" Relationship="Self.FK_FisioterapeutaActividadesEspeciales_ActividadEsp" FromRole="FisioterapeutaActividadesEspeciales" ToRole="Actividades_Especiales" />
+          <NavigationProperty Name="Fisioterapeuta1" Relationship="Self.FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta" FromRole="FisioterapeutaActividadesEspeciales" ToRole="Fisioterapeuta" />
+        </EntityType>
+        <EntityType Name="HorarioFisioterapeuta">
+          <Key>
+            <PropertyRef Name="Fisioterapeuta" />
+          </Key>
+          <Property Name="Fisioterapeuta" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="FechaFin" Type="DateTime" Precision="0" />
+          <Property Name="HoraInicio" Type="Time" Precision="7" />
+          <Property Name="HoraFin" Type="Time" Precision="7" />
+          <Property Name="HoraDescanso" Type="Time" Precision="7" />
+          <Property Name="HoraDescansoFin" Type="Time" Precision="7" />
+          <Property Name="IdHorarioFisioterapeuta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fisioterapeuta1" Relationship="Self.FK_HorarioFisioterapeuta_Fisioterapeuta" FromRole="HorarioFisioterapeuta" ToRole="Fisioterapeuta" />
+        </EntityType>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="NumeroOrden" />
+          </Key>
+          <Property Name="NumeroOrden" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sesiones" Type="Int32" />
+          <Property Name="DocumentoPaciente" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TipoOrden" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaOrden" Type="DateTime" Precision="0" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+          <Property Name="CodigoSiniestro" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Ordencol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Dx" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAccidente" Type="DateTime" Precision="0" />
+          <Property Name="Diagnostico" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Cobertura" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CitaIndividual" Relationship="Self.FK_CitaIndividual_Orden" FromRole="Orden" ToRole="CitaIndividual" />
+          <NavigationProperty Name="Paciente" Relationship="Self.FK_Orden_ToPaciente" FromRole="Orden" ToRole="Paciente" />
+          <NavigationProperty Name="OrdenCitasGrupales" Relationship="Self.FK_OrdenCitasGrupales_Orden" FromRole="Orden" ToRole="OrdenCitasGrupales" />
+        </EntityType>
+        <EntityType Name="OrdenCitasGrupales">
+          <Key>
+            <PropertyRef Name="Cita" />
+          </Key>
+          <Property Name="Cita" Type="Int32" Nullable="false" />
+          <Property Name="Orden" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CitaGrupal" Relationship="Self.FK_OrdenCitasGrupales_Cita" FromRole="OrdenCitasGrupales" ToRole="CitaGrupal" />
+          <NavigationProperty Name="Orden1" Relationship="Self.FK_OrdenCitasGrupales_Orden" FromRole="OrdenCitasGrupales" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Direccion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Localidad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Estrato" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orden" Relationship="Self.FK_Orden_ToPaciente" FromRole="Paciente" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
+          <End Role="Actividades_Especiales" Type="Self.Actividades_Especiales" Multiplicity="1" />
+          <End Role="FisioterapeutaActividadesEspeciales" Type="Self.FisioterapeutaActividadesEspeciales" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Actividades_Especiales">
+              <PropertyRef Name="IdActividadesEspeciales" />
+            </Principal>
+            <Dependent Role="FisioterapeutaActividadesEspeciales">
+              <PropertyRef Name="ActividadEspecial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaGrupal_ToEstudiante">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="CitaGrupal" Type="Self.CitaGrupal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="CitaGrupal">
+              <PropertyRef Name="Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdenCitasGrupales_Cita">
+          <End Role="CitaGrupal" Type="Self.CitaGrupal" Multiplicity="1" />
+          <End Role="OrdenCitasGrupales" Type="Self.OrdenCitasGrupales" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CitaGrupal">
+              <PropertyRef Name="IdCitaGrupal" />
+            </Principal>
+            <Dependent Role="OrdenCitasGrupales">
+              <PropertyRef Name="Cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaIndividual_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="CitaIndividual" Type="Self.CitaIndividual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="CitaIndividual">
+              <PropertyRef Name="Fisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CitaIndividual_Orden">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+          <End Role="CitaIndividual" Type="Self.CitaIndividual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="NumeroOrden" />
+            </Principal>
+            <Dependent Role="CitaIndividual">
+              <PropertyRef Name="NumeroOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estudiante_ToFisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="DocumentoEncargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="FisioterapeutaActividadesEspeciales" Type="Self.FisioterapeutaActividadesEspeciales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="FisioterapeutaActividadesEspeciales">
+              <PropertyRef Name="Fisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioFisioterapeuta_Fisioterapeuta">
+          <End Role="Fisioterapeuta" Type="Self.Fisioterapeuta" Multiplicity="0..1" />
+          <End Role="HorarioFisioterapeuta" Type="Self.HorarioFisioterapeuta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fisioterapeuta">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="HorarioFisioterapeuta">
+              <PropertyRef Name="IdHorarioFisioterapeuta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orden_ToPaciente">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="Documento" />
+            </Principal>
+            <Dependent Role="Orden">
+              <PropertyRef Name="DocumentoPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdenCitasGrupales_Orden">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="0..1" />
+          <End Role="OrdenCitasGrupales" Type="Self.OrdenCitasGrupales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="NumeroOrden" />
+            </Principal>
+            <Dependent Role="OrdenCitasGrupales">
+              <PropertyRef Name="Orden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kynapsisEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividades_Especiales" EntityType="Self.Actividades_Especiales" />
+          <EntitySet Name="CitaGrupal" EntityType="Self.CitaGrupal" />
+          <EntitySet Name="CitaIndividual" EntityType="Self.CitaIndividual" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Fisioterapeuta" EntityType="Self.Fisioterapeuta" />
+          <EntitySet Name="FisioterapeutaActividadesEspeciales" EntityType="Self.FisioterapeutaActividadesEspeciales" />
+          <EntitySet Name="HorarioFisioterapeuta" EntityType="Self.HorarioFisioterapeuta" />
+          <EntitySet Name="Orden" EntityType="Self.Orden" />
+          <EntitySet Name="OrdenCitasGrupales" EntityType="Self.OrdenCitasGrupales" />
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+          <AssociationSet Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp" Association="Self.FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
+            <End Role="Actividades_Especiales" EntitySet="Actividades_Especiales" />
+            <End Role="FisioterapeutaActividadesEspeciales" EntitySet="FisioterapeutaActividadesEspeciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaGrupal_ToEstudiante" Association="Self.FK_CitaGrupal_ToEstudiante">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="CitaGrupal" EntitySet="CitaGrupal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdenCitasGrupales_Cita" Association="Self.FK_OrdenCitasGrupales_Cita">
+            <End Role="CitaGrupal" EntitySet="CitaGrupal" />
+            <End Role="OrdenCitasGrupales" EntitySet="OrdenCitasGrupales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaIndividual_Fisioterapeuta" Association="Self.FK_CitaIndividual_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="CitaIndividual" EntitySet="CitaIndividual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CitaIndividual_Orden" Association="Self.FK_CitaIndividual_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="CitaIndividual" EntitySet="CitaIndividual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estudiante_ToFisioterapeuta" Association="Self.FK_Estudiante_ToFisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta" Association="Self.FK_FisioterapeutaActividadesEspeciales_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="FisioterapeutaActividadesEspeciales" EntitySet="FisioterapeutaActividadesEspeciales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioFisioterapeuta_Fisioterapeuta" Association="Self.FK_HorarioFisioterapeuta_Fisioterapeuta">
+            <End Role="Fisioterapeuta" EntitySet="Fisioterapeuta" />
+            <End Role="HorarioFisioterapeuta" EntitySet="HorarioFisioterapeuta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orden_ToPaciente" Association="Self.FK_Orden_ToPaciente">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="Orden" EntitySet="Orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdenCitasGrupales_Orden" Association="Self.FK_OrdenCitasGrupales_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="OrdenCitasGrupales" EntitySet="OrdenCitasGrupales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kynapsisModelStoreContainer" CdmEntityContainer="kynapsisEntities1">
+          <EntitySetMapping Name="Actividades_Especiales">
+            <EntityTypeMapping TypeName="kynapsisModel.Actividades_Especiales">
+              <MappingFragment StoreEntitySet="Actividades_Especiales">
+                <ScalarProperty Name="IdActividadesEspeciales" ColumnName="IdActividadesEspeciales" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CitaGrupal">
+            <EntityTypeMapping TypeName="kynapsisModel.CitaGrupal">
+              <MappingFragment StoreEntitySet="CitaGrupal">
+                <ScalarProperty Name="IdCitaGrupal" ColumnName="IdCitaGrupal" />
+                <ScalarProperty Name="Estudiante" ColumnName="Estudiante" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CitaIndividual">
+            <EntityTypeMapping TypeName="kynapsisModel.CitaIndividual">
+              <MappingFragment StoreEntitySet="CitaIndividual">
+                <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+                <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+                <ScalarProperty Name="Fisioterapeuta" ColumnName="Fisioterapeuta" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="kynapsisModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+                <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+                <ScalarProperty Name="DocumentoEncargado" ColumnName="DocumentoEncargado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fisioterapeuta">
+            <EntityTypeMapping TypeName="kynapsisModel.Fisioterapeuta">
+              <MappingFragment StoreEntitySet="Fisioterapeuta">
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FisioterapeutaActividadesEspeciales">
+            <EntityTypeMapping TypeName="kynapsisModel.FisioterapeutaActividadesEspeciales">
+              <MappingFragment StoreEntitySet="FisioterapeutaActividadesEspeciales">
+                <ScalarProperty Name="ActividadEspecial" ColumnName="ActividadEspecial" />
+                <ScalarProperty Name="Fisioterapeuta" ColumnName="Fisioterapeuta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HorarioFisioterapeuta">
+            <EntityTypeMapping TypeName="kynapsisModel.HorarioFisioterapeuta">
+              <MappingFragment StoreEntitySet="HorarioFisioterapeuta">
+                <ScalarProperty Name="Fisioterapeuta" ColumnName="Fisioterapeuta" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="HoraDescanso" ColumnName="HoraDescanso" />
+                <ScalarProperty Name="HoraDescansoFin" ColumnName="HoraDescansoFin" />
+                <ScalarProperty Name="IdHorarioFisioterapeuta" ColumnName="IdHorarioFisioterapeuta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orden">
+            <EntityTypeMapping TypeName="kynapsisModel.Orden">
+              <MappingFragment StoreEntitySet="Orden">
+                <ScalarProperty Name="NumeroOrden" ColumnName="NumeroOrden" />
+                <ScalarProperty Name="Sesiones" ColumnName="Sesiones" />
+                <ScalarProperty Name="DocumentoPaciente" ColumnName="DocumentoPaciente" />
+                <ScalarProperty Name="TipoOrden" ColumnName="TipoOrden" />
+                <ScalarProperty Name="FechaOrden" ColumnName="FechaOrden" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="CodigoSiniestro" ColumnName="CodigoSiniestro" />
+                <ScalarProperty Name="Ordencol" ColumnName="Ordencol" />
+                <ScalarProperty Name="Dx" ColumnName="Dx" />
+                <ScalarProperty Name="FechaAccidente" ColumnName="FechaAccidente" />
+                <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+                <ScalarProperty Name="Cobertura" ColumnName="Cobertura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenCitasGrupales">
+            <EntityTypeMapping TypeName="kynapsisModel.OrdenCitasGrupales">
+              <MappingFragment StoreEntitySet="OrdenCitasGrupales">
+                <ScalarProperty Name="Cita" ColumnName="Cita" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paciente">
+            <EntityTypeMapping TypeName="kynapsisModel.Paciente">
+              <MappingFragment StoreEntitySet="Paciente">
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+                <ScalarProperty Name="Estrato" ColumnName="Estrato" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="kynapsisModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

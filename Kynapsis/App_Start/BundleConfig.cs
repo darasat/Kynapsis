@@ -21,11 +21,14 @@ namespace Kynapsis
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js", "~/Scripts/jquery.dcjqaccordion.2.7.js",
+                      "~/Scripts/jquery.scrollTo.min.js", "~/Scripts/jquery.nicescroll.js", "~/Scripts/jquery.common - scripts.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css", "~/ Content/fullcalendar.css", "~/Content/fullcallendar.print.css",
+                      "~/Content/jquery-ui.min.css", "~/Content/style-responsive.css", "~/Content/style.css", "~/Content/to-do.css",
+                      "~/Content/font-awesome.css"
+                      ));
         }
     }
 }

@@ -21,7 +21,7 @@
         <aside>
             <div id="sidebar" class="nav-collapse ">
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <p class="centered"><a href="index.html"><img src="assets/img/logo-pequeño-5.png" width="100"></a></p>
+                    <p class="centered"><a href="@Url.Action("Index", "Home")"><img src="assets/img/logo-pequeño-5.png" width="100"></a></p>
                     <h5 class="centered">ejemplo</h5>
                     <li class="sub-menu">
                         <a href="javascript:;">
@@ -29,8 +29,8 @@
                             <span> USUARIOS</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="info-usuario.html">Informacion usuario</a></li>
-                            <li><a href="creacionusuario.html">Crear usuario</a></li>
+                            <li><a href="@Url.Action("Details", "Usuario")">Informacion usuario</a></li>
+                            <li><a href="@Url.Action("Index", "usuario")">Crear usuario</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -122,9 +122,11 @@
     <br><br><br><br><br><br>
     <footer class="site-footer">
         <div class="text-center">
-            <a href="agregar fisioterapeuta.html#" class="go-top">
+            <a href="@Url.Action("Index", "Fisioterapeuta")" class="go-top">
                 <i class="fa fa-angle-up"></i>
             </a>
         </div>
     </footer>
+
+</body>
 
