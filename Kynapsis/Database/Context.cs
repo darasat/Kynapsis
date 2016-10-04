@@ -15,5 +15,6 @@ namespace Kynapsis.Models
         }
 
         public DbSet<Estudiante> Estudiante { get; set; }
+        public DbSet<Fisioterapeuta> Fisioterapeuta { get; set; }
     }
 }
