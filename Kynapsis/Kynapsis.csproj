@@ -250,6 +250,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Database\Context.cs" />
     <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\FisioterapeutaModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PacienteModels.cs" />
