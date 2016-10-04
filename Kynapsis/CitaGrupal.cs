@@ -11,17 +11,14 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    
     public partial class CitaGrupal
     {
-        [Key]
         public int IdCitaGrupal { get; set; }
         public string Estudiante { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<System.TimeSpan> Hora { get; set; }
-
-        [ForeignKey("Estudiante")]
+    
         public virtual Estudiante Estudiante1 { get; set; }
         public virtual OrdenCitasGrupales OrdenCitasGrupales { get; set; }
     }

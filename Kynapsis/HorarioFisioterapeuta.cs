@@ -11,10 +11,9 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class HorarioFisioterapeuta
     {
-        [Key]
         public string Fisioterapeuta { get; set; }
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }

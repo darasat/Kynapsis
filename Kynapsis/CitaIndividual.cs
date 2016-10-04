@@ -11,10 +11,9 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class CitaIndividual
     {
-        [Key]
         public int IdCita { get; set; }
         public string NumeroOrden { get; set; }
         public string Fisioterapeuta { get; set; }

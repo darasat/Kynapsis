@@ -1,0 +1,224 @@
+﻿<script>
+
+	$(document).ready(function($) {
+
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2016-01-12',
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end) {
+				var title = prompt('Event Title:');
+				var eventData;
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				}
+				$('#calendar').fullCalendar('unselect');
+			},
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2016-01-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2016-01-07',
+					end: '2016-01-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-01-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-01-11',
+					end: '2016-01-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T10:30:00',
+					end: '2016-01-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2016-01-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-01-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-01-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-01-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2016-01-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-01-28'
+				}
+			]
+		});
+
+	});
+
+</script>
+  </head>
+<body>
+    <section id="container">
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right"></div>
+            </div>
+            <a href="index.html" class="logo"><b>Conex Kinesis</b></a>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="index.html"><img src="assets/img/logo-pequeño-5.png" width="100"></a></p>
+                    <h5 class="centered">ejemplo</h5>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="li_clip "></i>
+                            <span> USUARIOS</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="info-usuario.html">Informacion usuario</a></li>
+                            <li><a href="creacionusuario.html">Crear usuario</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="li_calendar"></i>
+                            <span>TALENTO HUMANO</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="personal nuevo.html">nuevo personal</a></li>
+                            <li><a href="programar horarios.html">programacion de horario</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Manejo de citas</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p id="(contador)">fallas 0/2</p>
+                                <div class="col-md-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>paciente:</label>
+                                            <input class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Orden de relacion:</label>
+                                            <select class="form-control">
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Horario del</label>
+                                            <p class="form-control-static">...</p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form role="form">
+                                        <div class="form-group col-lg-6">
+                                            <label>tipo:</label>
+                                            <select class="form-control">
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>cedula:</label>
+                                            <input class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Edad:</label>
+                                            <input class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Al</label>
+                                            <p class="form-control-static">...</p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="calendar"></div>
+                                        <form role="form" action="manejo de horarios clientes.html">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-theme btn-block" href="manejo de horarios clientes.html" type="submit">Salir</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br>
+    <footer class="site-footer">
+        <div class="text-center">
+            <a href="manejo de citas.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    </body>
+

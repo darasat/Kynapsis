@@ -11,10 +11,9 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Actividades_Especiales
     {
-        [Key]
         public int IdActividadesEspeciales { get; set; }
         public string Nombre { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }

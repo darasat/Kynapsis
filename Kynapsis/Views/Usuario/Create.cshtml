@@ -1,0 +1,368 @@
+﻿@model Kynapsis.Models.Usuario
+
+@using (Html.BeginForm())
+{
+
+@Html.AntiForgeryToken()
+<body>
+    <section id="container">
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right"></div>
+            </div>
+            <a href="@Url.Action("Index", "Home")" class="logo"><b>Conex Kinesis</b></a>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="index.html"><img src="assets/img/logo-pequeño-5.png" width="100"></a></p>
+                    <h5 class="centered">ejemplo</h5>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="li_clip "></i>
+                            <span> USUARIOS</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="info-usuario.html">Informacion usuario</a></li>
+                            <li><a href="creacionusuario.html">Crear usuario</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="li_calendar"></i>
+                            <span>TALENTO HUMANO</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="personal nuevo.html">nuevo personal</a></li>
+                            <li><a href="programar horarios.html">programacion de horario</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <br>
+        <br>
+        <br>
+        <section id="wrapper col-lg-10">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Datos Personales</h3>
+                        </div>
+                        <div class="panel-body col-lg-12">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Tipo de documento</label>
+                                            <select class="form-control">
+                                                <option>C.C.</option>
+                                                <option>T.I.</option>
+                                                <option>Registro Civil</option>
+                                                <option>Cedula de Extranjeria</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-5">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Numero de documento</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Primer apellido</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Segundo apellido</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Fecha de nacimiento</label>
+                                            <input type="date" class="form-control" placeholder="" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Lugar de nacimiento</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Genero</label>
+                                            <select class="form-control">
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Correo Electronico</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Telefono celular</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Direccion de residencia</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Telefono fijo</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Municipio</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Localidad</label>
+                                            <input class="form-control" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Estrato</label>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Eps</label>
+                                            <select class="form-control">
+                                                <option>Nueva EPS</option>
+                                                <option>Compensar</option>
+                                                <option>Sanitas</option>
+                                                <option>Saludcoop</option>
+                                                <option>Cafesalud</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <form role="form" action="manejo de horarios.html">
+                                        <div class="form-group">
+                                            <label>Tipo de Afiliacion</label>
+                                            <select class="form-control">
+                                                <option>Cotizante</option>
+                                                <option>Beneficiario</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div>
+                                        <h3>Tipo de usuario</h3>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <form role="form">
+                                            <div class="">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio" value="1" onclick="uncheckRadio(this)">
+                                                        Estudiante
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-inline">
+                                            <select class="form-control">
+                                                <option>carrera</option>
+                                                <option>Fisioterapia</option>
+                                                <option>fonoaudiologia</option>
+                                                <option>medicina</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <form role="form">
+                                            <div class="">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio" value="2" onclick="uncheckRadio(this)">
+                                                        Solidaria
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-inline">
+                                            <select class="form-control">
+                                                <option>carrera</option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <form role="form">
+                                            <div class="">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio" value="3" onclick="uncheckRadio(this)">
+                                                        Unisalud
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-inline">
+                                            <select class="form-control">
+                                                <option>dependencia</option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <form role="form">
+                                            <div class="">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="radio" value="4" onclick="uncheckRadio(this)">
+                                                        Particular
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-inline">
+                                            <select class="form-control">
+                                                <option>Ocupacion</option>
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <br>
+                            <a class="btn btn-info btn-block" href="info-usuario.html" type="submit">Crear</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <br>
+    <br>
+    <br>
+    <footer class="site-footer">
+        <div class="text-center">
+            <a href="index.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+            <p class="text-center">pagina fisioterapia</p>
+        </div>
+    </footer>
+
+    <script language="JavaScript">
+    <!--
+    var era;
+    var previo=null;
+    function uncheckRadio(rbutton){
+    if(previo &&previo!=rbutton){previo.era=false;}
+    if(rbutton.checked==true && rbutton.era==true){rbutton.checked=false;}
+    rbutton.era=rbutton.checked;
+    previo=rbutton;
+    }
+//-->
+    </script>
+</body>
+}

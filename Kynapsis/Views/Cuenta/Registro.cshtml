@@ -1,0 +1,34 @@
+﻿<body>
+    <div class="container">
+        <form id="form1" class="form-login" action="javascript:inscripcion();">
+            <h2 class="form-login-heading">INSCRIPCION</h2>
+            <div class="login-wrap">
+                <div class="form-group">
+                    <label for="inputName" class="control-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="control-label">Contraseña</label>
+                    <div class="form-group">
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+                        <div class="help-block">Minimo 6 Caracteres</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirmar" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-theme btn-block" type="submit">Crear cuenta</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br><br><br><br><br><br><br>
+</body>
+

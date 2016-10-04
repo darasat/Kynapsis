@@ -1,9 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "Usuario";
-}
-
-<h2>Usuario</h2>
 
 <body>
     <section id="container">
@@ -14,7 +9,7 @@
             <a href="@Url.Action("Index", "Home")" class="logo"><b>Conex Kinesis</b></a>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Cerrar Sesión</a></li>
+                    <li><a class="logout" href="@Url.Action("Login", "Cuenta")">Cerrar Sesión</a></li>
                 </ul>
             </div>
         </header>
@@ -30,7 +25,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="@Url.Action("Index", "Usuario")">Informacion usuario</a></li>
-                            <li><a href="creacionusuario.html">Crear usuario</a></li>
+                            <li><a href="@Url.Action("Create", "Usuario")">Crear usuario</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -90,7 +85,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-md-offset-1 col-sm-offset-1 box0">
-                            <a href="creacionusuario.html">
+                            <a href="@Url.Action("Create", "Usuario")">
                                 <div class="box1">
                                     <span class="glyphicon glyphicon-plus"></span>
                                     <h3>crear usuario</h3>
@@ -110,7 +105,7 @@
     <br>
     <footer class="site-footer">
         <div class="text-center">
-            <a href="index.html#" class="go-top">
+            <a href="@Url.Action("Index", "Home")" class="go-top">
                 <i class="fa fa-angle-up"></i>
             </a>
             <p class="text-center">pagina fisioterapia</p>

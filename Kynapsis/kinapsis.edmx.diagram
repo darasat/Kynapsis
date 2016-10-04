@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="kynapsisModel.Orden" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="kynapsisModel.OrdenCitasGrupales" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="kynapsisModel.Paciente" Width="1.5" PointX="1.5" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="kynapsisModel.Table" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="kynapsisModel.FK_FisioterapeutaActividadesEspeciales_ActividadEsp" ManuallyRouted="false" />
         <AssociationConnector Association="kynapsisModel.FK_CitaGrupal_ToEstudiante" ManuallyRouted="false" />
         <AssociationConnector Association="kynapsisModel.FK_OrdenCitasGrupales_Cita" ManuallyRouted="false" />

@@ -127,12 +127,6 @@
           <Property Name="Estrato" Type="int" />
           <Property Name="Correo" Type="varchar" MaxLength="45" />
         </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-        </EntityType>
         <Association Name="FK_CitaGrupal_ToEstudiante">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
           <End Role="CitaGrupal" Type="Self.CitaGrupal" Multiplicity="*" />
@@ -264,7 +258,6 @@
           <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdenCitasGrupales" EntityType="Self.OrdenCitasGrupales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CitaGrupal_ToEstudiante" Association="Self.FK_CitaGrupal_ToEstudiante">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="CitaGrupal" EntitySet="CitaGrupal" />
@@ -453,12 +446,6 @@
           <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Orden" Relationship="Self.FK_Orden_ToPaciente" FromRole="Paciente" ToRole="Orden" />
         </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-        </EntityType>
         <Association Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
           <End Role="Actividades_Especiales" Type="Self.Actividades_Especiales" Multiplicity="1" />
           <End Role="FisioterapeutaActividadesEspeciales" Type="Self.FisioterapeutaActividadesEspeciales" Multiplicity="0..1" />
@@ -590,7 +577,6 @@
           <EntitySet Name="Orden" EntityType="Self.Orden" />
           <EntitySet Name="OrdenCitasGrupales" EntityType="Self.OrdenCitasGrupales" />
           <EntitySet Name="Paciente" EntityType="Self.Paciente" />
-          <EntitySet Name="Table" EntityType="Self.Table" />
           <AssociationSet Name="FK_FisioterapeutaActividadesEspeciales_ActividadEsp" Association="Self.FK_FisioterapeutaActividadesEspeciales_ActividadEsp">
             <End Role="Actividades_Especiales" EntitySet="Actividades_Especiales" />
             <End Role="FisioterapeutaActividadesEspeciales" EntitySet="FisioterapeutaActividadesEspeciales" />
@@ -767,13 +753,6 @@
                 <ScalarProperty Name="Localidad" ColumnName="Localidad" />
                 <ScalarProperty Name="Estrato" ColumnName="Estrato" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table">
-            <EntityTypeMapping TypeName="kynapsisModel.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

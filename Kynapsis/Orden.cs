@@ -11,7 +11,7 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Orden
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +20,7 @@ namespace Kynapsis
             this.CitaIndividual = new HashSet<CitaIndividual>();
             this.OrdenCitasGrupales = new HashSet<OrdenCitasGrupales>();
         }
-        [Key]
+    
         public string NumeroOrden { get; set; }
         public Nullable<int> Sesiones { get; set; }
         public string DocumentoPaciente { get; set; }

@@ -11,10 +11,9 @@ namespace Kynapsis
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class OrdenCitasGrupales
     {
-        [Key]
         public int Cita { get; set; }
         public string Orden { get; set; }
     
