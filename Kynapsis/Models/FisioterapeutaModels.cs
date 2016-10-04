@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Kynapsis.Models
 {
-    public class Fisioterapeuta
+    public class FisioterapeutaModels
     {
         public string Documento { get; set; }
         public string TipoDocumento { get; set; }
