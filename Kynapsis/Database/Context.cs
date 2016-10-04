@@ -14,6 +14,6 @@ namespace Kynapsis.Models
         {
         }
 
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Estudiante> Estudiante { get; set; }
     }
 }

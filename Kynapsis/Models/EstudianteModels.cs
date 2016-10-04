@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Kynapsis.Models
 {
-    public class Usuario
+    public class Estudiante
     {
         [Key()]
         public int IdUsuario { get; set; }

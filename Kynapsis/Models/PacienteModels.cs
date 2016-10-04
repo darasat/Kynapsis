@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Kynapsis.Models
 {
-    public class PacienteModels
+    public class Paciente
     {
         [Key]
         public string Documento { get; set; }

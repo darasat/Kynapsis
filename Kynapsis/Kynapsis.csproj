@@ -253,7 +253,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PacienteModels.cs" />
-    <Compile Include="Models\UsuarioModels.cs" />
+    <Compile Include="Models\EstudianteModels.cs" />
     <Compile Include="Orden.cs">
       <DependentUpon>kinapsis.tt</DependentUpon>
     </Compile>
