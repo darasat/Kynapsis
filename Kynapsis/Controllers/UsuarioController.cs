@@ -21,9 +21,8 @@ namespace Kynapsis.Controllers
         // GET: Usuario Create
         public ActionResult Create()
         {
-            // ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
     }
 }
