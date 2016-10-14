@@ -13,5 +13,11 @@ namespace Kynapsis.Controllers
         {
             return View();
         }
+
+        // Create: Horario
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }

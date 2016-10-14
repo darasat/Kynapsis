@@ -22,7 +22,8 @@ namespace Kynapsis
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js", "~/Scripts/jquery.dcjqaccordion.2.7.js",
-                      "~/Scripts/jquery.scrollTo.min.js", "~/Scripts/jquery.nicescroll.js", "~/Scripts/jquery.common - scripts.js"));
+                      "~/Scripts/jquery.scrollTo.min.js", "~/Scripts/jquery.nicescroll.js", "~/Scripts/jquery.common - scripts.js",
+                      "~/Scripts/moment.min.js", "~/Scripts/jquery.min.js", "~/Scripts/fullcalendar.min.js", "~/Scripts/es.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts")
            .IncludeDirectory("~/Scripts", "*.js", true));
