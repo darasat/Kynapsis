@@ -195,20 +195,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actividades_Especiales.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="CitaGrupal.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CitaIndividual.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
@@ -217,35 +208,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Estudiante.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Fisioterapeuta.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FisioterapeutaActividadesEspeciales.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="HorarioFisioterapeuta.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="kinapsis.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kinapsis.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="kinapsis.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="kinapsis.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kinapsis.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Database\Context.cs" />
@@ -255,15 +219,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PacienteModels.cs" />
     <Compile Include="Models\EstudianteModels.cs" />
-    <Compile Include="Orden.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OrdenCitasGrupales.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Paciente.cs">
-      <DependentUpon>kinapsis.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\TestReporte.cs">
       <AutoGen>True</AutoGen>
@@ -294,16 +249,6 @@
     <Content Include="img\logo-pequeño-5.png" />
     <Content Include="img\logo-pequeño.png" />
     <Content Include="img\ui-zac.jpg" />
-    <Content Include="kinapsis.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>kinapsis.edmx</DependentUpon>
-      <LastGenOutput>kinapsis.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="kinapsis.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>kinapsis.edmx</DependentUpon>
-      <LastGenOutput>kinapsis.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\agregar nuevo tipo de usuario.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -316,13 +261,6 @@
     </Content>
     <Content Include="fonts\_DS_Store" />
     <Content Include="app.config" />
-    <EntityDeploy Include="kinapsis.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>kinapsis.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="kinapsis.edmx.diagram">
-      <DependentUpon>kinapsis.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chartjs-conf.js" />
     <Content Include="Scripts\common-scripts.js" />

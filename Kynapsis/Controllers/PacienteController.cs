@@ -15,10 +15,7 @@ namespace Kynapsis.Controllers
         private KinapsisDBContext db = new KinapsisDBContext();
         public ActionResult Index()
         {
-            var paciente = db.Paciente.ToList();
-
-
-            return View(db.Paciente.ToList());
+            return View();
         }
 
     }

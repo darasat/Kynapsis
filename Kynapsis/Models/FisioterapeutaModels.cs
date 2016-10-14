@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace Kynapsis.Models
 {
-    public class FisioterapeutaModels
+    public class Fisioterapeuta
     {
+        [Key]
+        public int id { get; set; }
         public string Documento { get; set; }
         public string TipoDocumento { get; set; }
         public string Nombre { get; set; }

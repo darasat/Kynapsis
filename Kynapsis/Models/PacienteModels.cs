@@ -23,8 +23,8 @@ namespace Kynapsis.Models
         public Nullable<int> Estrato { get; set; }
         public string Correo { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orden> Orden { get; set; }
+       // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Orden> Orden { get; set; }
     }
 
     public class KinapsisDBContext : DbContext

@@ -1,4 +1,5 @@
-﻿using Kynapsis.Models;
+﻿using Kynapsis.Controllers;
+using Kynapsis.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -15,10 +16,10 @@ namespace Kynapsis.Controllers
         // GET: Fisioterapeuta
         public ActionResult Index()
         {
-            return View();
+           // return View();
 
            // var fisioterapeuta = db.Fisioterapeuta.ToList();
-           // return View(db.Fisioterapeuta.ToList());
+            return View(db.Fisioterapeuta.ToList());
         }
 
         // GET: /Fisioterapeuta/Details/5
@@ -28,12 +29,12 @@ namespace Kynapsis.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fisioterapeuta fisioterapueta = db.Fisioterapeuta.Find(id);
-            if (fisioterapueta == null)
+            Fisioterapeuta fisioterapeuta = db.Fisioterapeuta.Find(id);
+            if (fisioterapeuta == null)
             {
                 return HttpNotFound();
             }
-            return View(fisioterapueta);
+            return View(fisioterapeuta);
 
         }
 
@@ -48,7 +49,7 @@ namespace Kynapsis.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Pais,Ciudad,Institucion,Sede,Curso,Duracion,Inscripcion,Valor,Materiales,BusquedaAlojamiento,TipoAlojamiento,ComidaAlojamiento,DuracionAlojamiento,CostoAlojamiento,TrasladoAeropuerto,OpcionAeropuerto,TiqueteAeropuerto")] Fisioterapeuta fisioterapeuta)
+        public ActionResult Create([Bind(Include = "Id, Documento,TipoDocumento,Nombre,Apellido,FechaNacimiento,Edad,Sexo,Direccion,Telefono,Correo")] Fisioterapeuta fisioterapeuta)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +81,7 @@ namespace Kynapsis.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Idcotizacion,Pais,Ciudad,Institucion,Sede,Curso,Duracion,Inscripcion,Valor,Materiales,BusquedaAlojamiento,TipoAlojamiento,ComidaAlojamiento,DuracionAlojamiento,CostoAlojamiento,TrasladoAeropuerto,OpcionAeropuerto,TiqueteAereo")] Fisioterapeuta fisioterapeuta)
+        public ActionResult Edit([Bind(Include = "Documento,TipoDocumento,Nombre,Apellido,FechaNacimiento,Edad,Sexo,Direccion,Telefono,Correo")] Fisioterapeuta fisioterapeuta)
         {
             if (ModelState.IsValid)
             {

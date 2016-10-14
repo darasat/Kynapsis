@@ -1,5 +1,8 @@
-﻿@model Kynapsis.Models.FisioterapeutaModels
+﻿@model Kynapsis.Models.Fisioterapeuta
 <body>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     <section id="container">
         <header class="header black-bg">
             <div class="sidebar-toggle-box">
@@ -40,79 +43,120 @@
                 </ul>
             </div>
         </aside>
+
         <section id="main-content">
             <section class="wrapper">
                 <div class="row">
                     <div class="col-md-11 col-md-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3>Agragar fisioterapeuta</h3>
+                                <h3>Agregar fisioterapeuta</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form role="form">
+                                    
                                             <div class="form-group">
-                                                <label>Nombre</label>
-                                                <input class="form-control" />
+                                                @Html.LabelFor(model => model.Nombre, new { @class = "control-label col-md-2" })
+                                              
+                                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Nombre)
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Apellido</label>
-                                                <input class="form-control" />
+                                                @Html.LabelFor(model => model.Apellido, new { @class = "control-label col-md-2" })
+                                                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Apellido)
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Fecha de nacimiento</label>
-                                                <input type="date" class="form-control" placeholder="" />
+                                                @Html.LabelFor(model => model.FechaNacimiento, new { @class = "control-label col-md-2" })
+                                                @Html.TextBoxFor(model => model.FechaNacimiento, new { type = "date" , @class = new { @class = "form-control" } })
+
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.FechaNacimiento)
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Correo</label>
-                                                <input class="form-control" />
+                                                @Html.LabelFor(model => model.Correo, new { @class = "control-label col-md-2" })
+                                                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Correo)
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Direccion</label>
-                                                <input class="form-control" />
+                                                @Html.LabelFor(model => model.Direccion, new { @class = "control-label col-md-2" })
+                                                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Direccion)
+                                                </div>
                                             </div>
-                                        </form>
+                                   
                                     </div>
                                     <div class="col-md-6">
-                                        <form role="form" action="index.html">
+                                        @*<form role="form" action="index.html">*@
                                             <div class="form-group">
-                                                <label>Tipo de documento</label>
-                                                <select class="form-control">
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                    <option></option>
-                                                </select>
+                                                @Html.LabelFor(model => model.TipoDocumento, new { @class = "control-label col-md-2" })
+                                                @*@Html.DropDownListFor(model => model.TipoDocumento, new { @class = "form-control input-xlarge required"})*@
+                                            
+                                       
+
+                                                @Html.DropDownListFor(model => model.TipoDocumento, new List<SelectListItem>
+                                                {
+                                               new SelectListItem() {Text = "C.C", Value="C.C"},
+                                               new SelectListItem() {Text = "Libreta Militar", Value="Libreta Militar"},
+                                               new SelectListItem() {Text = "Tarjeta Identidad", Value="Tarjeta Identidad"}
+                                               } , new { @class = "form-control" })
+                                                
                                             </div>
                                             <div class="form-group">
-                                                <label>Numero de documento</label>
-                                                <input class="form-control" />
+                                                @Html.LabelFor(model => model.Documento, new { @class = "control-label col-md-2" })
+                                                @Html.EditorFor(model => model.Documento, new { htmlAttributes = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Documento)
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label>Genero</label>
-                                                <input type="checkbox" data-toggle="toggle" data-on="masculino" data-off="femenino" data-width="100%">
+                                                @Html.DropDownListFor(model => model.Sexo, new List<SelectListItem>
+                                                {
+                                               new SelectListItem() {Text = "Masculino", Value="Masculino"},
+                                               new SelectListItem() {Text = "Femenino", Value="Femenino"}
+                                               }, new { @class = "form-control" })
                                             </div>
                                             <div class="form-group">
-                                                <label>Telefono</label>
-                                                <input class="form-control" type="tel" />
+                                                @Html.LabelFor(model => model.Telefono, new { @class = "control-label col-md-2" })
+                                                @Html.TextBoxFor(model => model.Telefono, new { type = "tel", @class = new { @class = "form-control" } })
+                                                <div class="col-md-10">
+                                                    @Html.ValidationMessageFor(model => model.Telefono)
+                                                </div>
                                             </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Edad, new { @class = "control-label col-md-2" })
+                                            @Html.TextBoxFor(model => model.Edad, new { type = "tel", @class = new { @class = "form-control" } })
+                                            <div class="col-md-10">
+                                                @Html.ValidationMessageFor(model => model.Edad)
+                                            </div>
+                                        </div>
                                             <br>
-                                            <button class="btn btn-success btn-block" href="index.html" type="submit">Agregar</button>
-                                        </form>
+                                          
+                                        @*</form>*@
                                     </div>
-                                </div>
+                                    
                             </div>
+                              
+                                    <center><button class="btn btn-success" type="submit">Agregar</button></center>
+                                
                         </div>
                     </div>
                 </div>
             </section>
         </section>
     </section>
+
     <br><br><br><br><br><br>
     <footer class="site-footer">
         <div class="text-center">
@@ -121,4 +165,5 @@
             </a>
         </div>
     </footer>
+}
 </body>
