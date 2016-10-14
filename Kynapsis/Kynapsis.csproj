@@ -204,6 +204,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\FisioterapeutaController.cs" />
+    <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -352,6 +353,7 @@
     <Content Include="Views\Horario\Create.cshtml" />
     <Content Include="Views\Actividades\Actividades.cshtml" />
     <Content Include="Views\Cuenta\ResetPassword.cshtml" />
+    <Content Include="Views\Horario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\chart-master\" />
