@@ -19,5 +19,11 @@ namespace Kynapsis.Controllers
         {
             return View();
         }
+
+        // Create: Actual
+        public ActionResult Actual()
+        {
+            return View();
+        }
     }
 }
