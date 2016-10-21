@@ -262,6 +262,7 @@
     </Content>
     <Content Include="fonts\_DS_Store" />
     <Content Include="app.config" />
+    <None Include="Properties\PublishProfiles\kinapsys.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chartjs-conf.js" />
     <Content Include="Scripts\common-scripts.js" />
